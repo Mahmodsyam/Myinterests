@@ -1,0 +1,2090 @@
+/* ==========================================================================
+   موعدنا 💛 — محمود وشروق | التصميم الزجاجي الملكي الفائق (Royal Glass & Dawn)
+   ========================================================================== */
+
+/* 1. نظام الثيمات والمتغيرات اللونية (الافتراضي: الليلي الملكي بالذهب السائل 🌙✨) */
+:root {
+  --primary-rose: #fb7185;
+  --primary-rose-hover: #f43f5e;
+  --primary-rose-active: #e11d48;
+
+  --warm-gold: #fbbf24;
+  --warm-gold-hover: #f59e0b;
+  --warm-amber-light: rgba(251, 191, 36, 0.16);
+
+  --bg-deep: #090514;
+  --bg-gradient: radial-gradient(circle at 15% 15%, #1f1037 0%, #110822 45%, #080411 100%);
+
+  --card-bg: rgba(22, 13, 40, 0.72);
+  --card-inner-bg: rgba(34, 20, 60, 0.65);
+  --card-inner-hover: rgba(49, 28, 84, 0.85);
+  --card-selected-bg: linear-gradient(145deg, rgba(68, 24, 60, 0.88) 0%, rgba(42, 18, 56, 0.92) 100%);
+
+  --card-border: rgba(251, 191, 36, 0.22);
+  --card-inner-border: rgba(251, 113, 133, 0.22);
+  --card-selected-border: #fbbf24;
+
+  --card-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.65), 0 0 35px rgba(244, 63, 94, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.12);
+  --card-hover-shadow: 0 20px 45px -10px rgba(244, 63, 94, 0.32), 0 0 25px rgba(251, 191, 36, 0.18);
+
+  --text-main: #fdf8f5;
+  --text-muted: #d8b4c8;
+  --text-light: #a78298;
+  --heading-gradient: linear-gradient(135deg, #fffbeb 0%, #fde68a 45%, #fda4af 100%);
+
+  --input-bg: rgba(15, 8, 29, 0.82);
+  --input-border: rgba(251, 191, 36, 0.35);
+
+  --arena-bg: rgba(15, 8, 30, 0.58);
+  --arena-border: rgba(251, 191, 36, 0.3);
+
+  --whatsapp-color: #25d366;
+  --whatsapp-hover: #128c7e;
+
+  --font-ui: 'Tajawal', 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+  --font-literary: 'Amiri', 'Cairo', Georgia, serif;
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 26px;
+  --radius-xl: 34px;
+
+  --transition-smooth: all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* الثيم الثاني: إشراقة الصباح الذهبية واللؤلؤ (Pearl & Rose-Gold Dawn ☀️🌸) */
+[data-theme="dawn"] {
+  --primary-rose: #e11d48;
+  --primary-rose-hover: #be123c;
+  --primary-rose-active: #9f1239;
+
+  --warm-gold: #d97706;
+  --warm-gold-hover: #b45309;
+  --warm-amber-light: rgba(245, 158, 11, 0.14);
+
+  --bg-deep: #fffaf5;
+  --bg-gradient: radial-gradient(circle at 20% 10%, #fff0f3 0%, #fffdf9 50%, #fef3c7 100%);
+
+  --card-bg: rgba(255, 255, 255, 0.82);
+  --card-inner-bg: rgba(255, 255, 255, 0.92);
+  --card-inner-hover: #ffffff;
+  --card-selected-bg: linear-gradient(145deg, #fff1f2 0%, #fef3c7 100%);
+
+  --card-border: rgba(244, 63, 94, 0.22);
+  --card-inner-border: rgba(244, 63, 94, 0.18);
+  --card-selected-border: #e11d48;
+
+  --card-shadow: 0 20px 50px -12px rgba(225, 29, 72, 0.14), 0 4px 18px rgba(217, 119, 6, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  --card-hover-shadow: 0 18px 38px -8px rgba(225, 29, 72, 0.22);
+
+  --text-main: #2d0612;
+  --text-muted: #6d2e46;
+  --text-light: #9d5c73;
+  --heading-gradient: linear-gradient(135deg, #881337 0%, #be123c 50%, #b45309 100%);
+
+  --input-bg: #ffffff;
+  --input-border: rgba(225, 29, 72, 0.32);
+
+  --arena-bg: rgba(255, 241, 242, 0.65);
+  --arena-border: rgba(225, 29, 72, 0.28);
+}
+
+/* 2. إعادة الضبط والأساسيات */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-ui);
+  direction: rtl;
+  text-align: right;
+  background-color: var(--bg-deep);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.65;
+  transition: background-color 0.45s ease, color 0.35s ease;
+}
+
+/* 3. إضاءات الشفق الملكية الخلفية (Aurora Ambient Orbs) */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  opacity: 0.42;
+  animation: orbDrift 16s infinite alternate ease-in-out;
+}
+
+[data-theme="dawn"] .aurora-orb {
+  opacity: 0.32;
+  filter: blur(95px);
+}
+
+.orb-gold {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, #f59e0b 0%, transparent 70%);
+  top: -90px;
+  right: -80px;
+}
+
+.orb-rose {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, #f43f5e 0%, transparent 70%);
+  bottom: -120px;
+  left: -100px;
+  animation-delay: -5s;
+}
+
+.orb-violet {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -10s;
+}
+
+@keyframes orbDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-25px, 30px) scale(1.12); }
+  100% { transform: translate(25px, -20px) scale(0.94); }
+}
+
+/* خلفية القلوب واللمسات المتحركة الهادئة */
+.floating-hearts-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-heart {
+  position: absolute;
+  color: rgba(251, 191, 36, 0.22);
+  user-select: none;
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.25));
+  animation: floatUpward linear infinite;
+}
+
+@keyframes floatUpward {
+  0% {
+    transform: translateY(110vh) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-20vh) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 4. الحاوية الرئيسية والهيدر الزجاجي */
+.app-container {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.15rem 1.25rem 3rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+
+.app-header {
+  padding: 0.5rem 0 0.75rem;
+}
+
+.header-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.logo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--warm-gold);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.logo-badge .sparkle {
+  color: var(--primary-rose);
+  animation: pulseRotate 2.5s infinite ease-in-out;
+}
+
+/* زر تبديل الثيم (الليلي الملكي / إشراقة الصباح) */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  padding: 0.48rem 1rem;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: var(--transition-bounce);
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--warm-gold);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.25);
+}
+
+.theme-toggle-icon {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+@keyframes pulseRotate {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.25) rotate(15deg); }
+}
+
+/* 5. مؤشر التقدم (Progress Indicator) */
+.progress-section {
+  margin: 0.5rem 0 1.25rem;
+  background: var(--card-bg);
+  padding: 1.1rem 1.35rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.progress-step-title {
+  color: var(--warm-gold);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.progress-counter {
+  color: var(--text-main);
+  background: var(--warm-amber-light);
+  border: 1px solid var(--card-border);
+  padding: 0.18rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.progress-bar-track {
+  height: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+[data-theme="dawn"] .progress-bar-track {
+  background: rgba(225, 29, 72, 0.1);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b 0%, #fb7185 55%, #ec4899 100%);
+  border-radius: 20px;
+  width: 0%;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.6);
+}
+
+.step-indicators-pills {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  padding: 0 0.2rem;
+}
+
+.step-pill {
+  width: 26px;
+  height: 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.14);
+  transition: var(--transition-smooth);
+}
+
+[data-theme="dawn"] .step-pill {
+  background: rgba(225, 29, 72, 0.18);
+}
+
+.step-pill.active {
+  background: linear-gradient(90deg, var(--warm-gold), var(--primary-rose));
+  width: 44px;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.5);
+}
+
+.step-pill.completed {
+  background: var(--warm-gold);
+}
+
+/* 6. بطاقة المحتوى الرئيسية للخطوة مع حركات الدخول السلسة (@starting-style) */
+.step-container {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+  padding: 2.25rem 1.85rem;
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  translate: 0;
+  transition:
+    display 0.4s,
+    opacity 0.4s ease-out,
+    translate 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.35s ease,
+    border-color 0.35s ease;
+  transition-behavior: allow-discrete;
+}
+
+/* خط ضوئي علوي أنيق أعلى كل بطاقة خطوة */
+.step-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--warm-gold), var(--primary-rose), transparent);
+  opacity: 0.85;
+}
+
+@starting-style {
+  .step-container {
+    opacity: 0;
+    translate: 0 18px;
+  }
+}
+
+/* نصوص وعناوين الخطوة */
+.step-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.step-badge {
+  display: inline-block;
+  background: var(--warm-amber-light);
+  color: var(--warm-gold);
+  padding: 0.32rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.step-title {
+  font-family: var(--font-literary);
+  font-size: 2rem;
+  font-weight: 700;
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.step-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* 7. شبكة بطاقات الخيارات بأسلوب Bento Glass */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .options-grid.two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 580px) {
+  .options-grid.three-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.option-card {
+  position: relative;
+  background: var(--card-inner-bg);
+  border: 1.5px solid var(--card-inner-border);
+  border-radius: var(--radius-lg);
+  padding: 1.45rem 1.15rem;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+}
+
+.option-card:hover {
+  background: var(--card-inner-hover);
+  border-color: var(--warm-gold);
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.option-card.selected {
+  border-color: var(--card-selected-border);
+  background: var(--card-selected-bg);
+  box-shadow: 0 12px 32px -4px rgba(244, 63, 94, 0.35), 0 0 20px rgba(251, 191, 36, 0.25);
+  transform: translateY(-4px) scale(1.02);
+}
+
+.option-card-icon {
+  font-size: 2.35rem;
+  margin-bottom: 0.75rem;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+[data-theme="dawn"] .option-card-icon {
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.option-card:hover .option-card-icon {
+  transform: scale(1.14) rotate(6deg);
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+}
+
+.option-card-title {
+  font-size: 1.22rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.option-card.selected .option-card-title {
+  color: var(--warm-gold);
+}
+
+.option-card-desc {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* شارة الاختيار الذهبية (Checkmark Badge) */
+.check-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--card-inner-border);
+  background: rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-size: 0.88rem;
+  font-weight: 900;
+  transition: var(--transition-bounce);
+}
+
+.option-card.selected .check-badge,
+.date-pill-card.selected .check-badge,
+.time-slot-card.selected .check-badge,
+.addon-card.selected .check-badge {
+  background: linear-gradient(135deg, var(--warm-gold) 0%, var(--primary-rose-hover) 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.6);
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   8. شاشة الدعوة الخاصة وزر «لا» الهارب
+   ========================================================================== */
+.invitation-screen {
+  text-align: center;
+  padding: 2rem 1.25rem;
+}
+
+.invitation-envelope-icon {
+  font-size: 3.8rem;
+  margin-bottom: 0.65rem;
+  display: inline-block;
+  filter: drop-shadow(0 8px 20px rgba(244, 63, 94, 0.4));
+  animation: heartbeat 2.2s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.16); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+}
+
+.invitation-title {
+  font-family: var(--font-literary);
+  font-size: 2.35rem;
+  font-weight: 700;
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.invitation-subtitle {
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  margin: 0 auto 1.65rem;
+  line-height: 1.7;
+}
+
+/* منطقة الأزرار في شاشة البداية (Arena for dodging) */
+.invitation-arena {
+  position: relative;
+  min-height: 230px;
+  width: 100%;
+  margin: 1.5rem 0 0.75rem;
+  background: var(--arena-bg);
+  border: 1.5px dashed var(--arena-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 1.75rem;
+  box-shadow: inset 0 4px 25px rgba(0, 0, 0, 0.25);
+}
+
+.buttons-row {
+  display: flex;
+  gap: 1.35rem;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* زر نعم الملكي المتوهج */
+.btn-yes {
+  background: linear-gradient(135deg, #f59e0b 0%, #f43f5e 55%, #be123c 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-size: 1.38rem;
+  font-weight: 900;
+  padding: 1rem 2.75rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 12px 32px rgba(244, 63, 94, 0.5), 0 0 20px rgba(251, 191, 36, 0.35);
+  transition: var(--transition-bounce);
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.btn-yes:hover {
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 16px 38px rgba(244, 63, 94, 0.65), 0 0 28px rgba(251, 191, 36, 0.55);
+}
+
+.btn-yes:active {
+  transform: scale(0.97);
+}
+
+/* زر لا الهارب الزجاجي بحركة سلسة ومرنة */
+.btn-no {
+  background: var(--card-inner-bg);
+  color: var(--text-main);
+  border: 1.5px solid var(--card-border);
+  font-size: 1.2rem;
+  font-weight: 800;
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.42s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+  font-family: inherit;
+  user-select: none;
+  touch-action: none;
+  z-index: 4;
+  white-space: nowrap;
+  position: relative;
+  transform: translate3d(0, 0, 0) rotate(0deg);
+  will-change: transform;
+  backdrop-filter: blur(10px);
+}
+
+.btn-no.escaped {
+  z-index: 10 !important;
+  border-color: var(--primary-rose);
+  box-shadow: 0 12px 28px rgba(244, 63, 94, 0.35), 0 0 16px rgba(251, 191, 36, 0.25);
+}
+
+@keyframes gentleWiggle {
+  0% { transform: scale(0.95) rotate(-4deg); }
+  50% { transform: scale(1.05) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* فقاعة العبارات الطريفة عند هروب زر «لا» */
+.dodge-speech-bubble {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px) scale(0.9);
+  background: linear-gradient(135deg, #fbbf24 0%, #f43f5e 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  padding: 0.45rem 1.4rem;
+  font-size: 0.96rem;
+  font-weight: 800;
+  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.35);
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--transition-bounce);
+  z-index: 12;
+  max-width: 92%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dodge-speech-bubble.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.invitation-helper-tip {
+  margin-top: 1.35rem;
+  background: var(--warm-amber-light);
+  border: 1px dashed var(--warm-gold);
+  border-radius: 50px;
+  padding: 0.65rem 1.45rem;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--warm-gold);
+  display: inline-block;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  animation: softPulse 3s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   9. أزرار التنقل السفلية (Next / Prev)
+   ========================================================================== */
+.navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+  padding: 1.1rem 1.35rem;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.btn-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.9rem;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  border: none;
+  text-decoration: none;
+}
+
+.btn-next {
+  background: linear-gradient(135deg, var(--warm-gold) 0%, var(--primary-rose-hover) 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(244, 63, 94, 0.35);
+  margin-right: auto;
+}
+
+.btn-next:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(244, 63, 94, 0.5);
+}
+
+.btn-prev {
+  background: var(--card-inner-bg);
+  color: var(--text-muted);
+  border: 1.5px solid var(--card-border);
+}
+
+.btn-prev:hover {
+  color: var(--warm-gold);
+  border-color: var(--warm-gold);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   10. شاشات اليوم والساعة والإضافات والهدية
+   ========================================================================== */
+.date-selector-wrapper {
+  margin-bottom: 1.25rem;
+}
+
+.date-pill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 0.85rem;
+  background: var(--card-inner-bg);
+  border: 1.5px solid var(--card-inner-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  text-align: center;
+  position: relative;
+}
+
+.date-pill-card:hover {
+  background: var(--card-inner-hover);
+  border-color: var(--warm-gold);
+  transform: translateY(-4px);
+}
+
+.date-pill-card.selected {
+  border-color: var(--card-selected-border);
+  background: var(--card-selected-bg);
+  box-shadow: 0 10px 26px rgba(244, 63, 94, 0.3);
+  transform: translateY(-3px);
+}
+
+.date-day-name {
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.date-day-date {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--warm-gold);
+}
+
+.other-date-btn-box {
+  text-align: center;
+  margin-top: 1.1rem;
+}
+
+.btn-other-date {
+  background: var(--card-inner-bg);
+  border: 1.5px dashed var(--warm-gold);
+  color: var(--warm-gold);
+  padding: 0.75rem 1.6rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--transition-smooth);
+}
+
+.btn-other-date:hover {
+  background: var(--warm-amber-light);
+  border-style: solid;
+  transform: translateY(-2px);
+}
+
+.custom-date-picker-box {
+  margin-top: 1rem;
+  background: var(--arena-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.custom-date-input {
+  font-family: inherit;
+  font-size: 1.05rem;
+  padding: 0.75rem 1.25rem;
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  background: var(--input-bg);
+  color: var(--text-main);
+  outline: none;
+  direction: ltr;
+  text-align: center;
+  font-weight: 800;
+  color-scheme: dark;
+}
+
+[data-theme="dawn"] .custom-date-input {
+  color-scheme: light;
+}
+
+.custom-date-input:focus {
+  border-color: var(--warm-gold);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.25);
+}
+
+/* شاشة الساعات */
+.time-slot-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.5rem;
+  background: var(--card-inner-bg);
+  border: 1.5px solid var(--card-inner-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  margin-bottom: 0.85rem;
+}
+
+.time-slot-card:hover {
+  background: var(--card-inner-hover);
+  border-color: var(--warm-gold);
+  transform: translateX(-5px);
+}
+
+.time-slot-card.selected {
+  border-color: var(--card-selected-border);
+  background: var(--card-selected-bg);
+  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.28);
+  transform: translateX(-4px);
+}
+
+.time-slot-main {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.time-icon {
+  font-size: 1.65rem;
+  color: var(--warm-gold);
+}
+
+.time-label {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.time-sub {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* شاشة الإضافات الاختيارية وملاحظة القلب */
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .addons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.addon-card {
+  position: relative;
+  background: var(--card-inner-bg);
+  border: 1.5px solid var(--card-inner-border);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.addon-card:hover {
+  background: var(--card-inner-hover);
+  border-color: var(--warm-gold);
+  transform: translateY(-3px);
+}
+
+.addon-card.selected {
+  border-color: var(--card-selected-border);
+  background: var(--card-selected-bg);
+  box-shadow: 0 8px 24px rgba(244, 63, 94, 0.25);
+}
+
+.addon-card .check-badge {
+  top: auto;
+  left: 10px;
+}
+
+.addon-icon {
+  font-size: 1.9rem;
+}
+
+.addon-info {
+  flex: 1;
+}
+
+.addon-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.addon-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.note-input-container {
+  margin-top: 1.5rem;
+  background: var(--arena-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.3rem;
+  border-radius: var(--radius-md);
+}
+
+.note-input-label {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--warm-gold);
+  margin-bottom: 0.65rem;
+}
+
+.note-textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 0.9rem 1.1rem;
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.96rem;
+  color: var(--text-main);
+  background: var(--input-bg);
+  resize: vertical;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.note-textarea:focus {
+  border-color: var(--warm-gold);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+}
+
+.skip-addons-box {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.btn-skip-addons {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0.4rem 0.8rem;
+  font-family: inherit;
+}
+
+.btn-skip-addons:hover {
+  color: var(--warm-gold);
+}
+
+/* ==========================================================================
+   11. بطاقة ملخص الموعد الملكية (VIP Royal Invitation Summary)
+   ========================================================================== */
+.summary-container {
+  background: var(--card-bg);
+  border: 2px solid var(--warm-gold);
+  border-radius: var(--radius-xl);
+  padding: 2.35rem 1.75rem;
+  box-shadow: var(--card-shadow), 0 0 40px rgba(251, 191, 36, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  translate: 0;
+  transition:
+    display 0.4s,
+    opacity 0.4s ease-out,
+    translate 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-behavior: allow-discrete;
+}
+
+@starting-style {
+  .summary-container {
+    opacity: 0;
+    translate: 0 20px;
+  }
+}
+
+.summary-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--warm-gold) 0%, var(--primary-rose) 50%, var(--warm-gold) 100%);
+}
+
+.summary-header {
+  text-align: center;
+  margin-bottom: 1.85rem;
+}
+
+.summary-heart-crown {
+  font-size: 3rem;
+  margin-bottom: 0.45rem;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.4));
+  animation: pulseRotate 3s infinite ease-in-out;
+}
+
+.summary-title {
+  font-family: var(--font-literary);
+  font-size: 2.15rem;
+  font-weight: 700;
+  background: var(--heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.35rem;
+}
+
+.summary-sub {
+  font-size: 0.98rem;
+  color: var(--text-muted);
+}
+
+/* صندوق تلميح الروبوت داخل أسئلة التحدي */
+.quiz-extras-box {
+  margin-top: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.btn-quiz-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--warm-amber-light);
+  color: var(--warm-gold);
+  border: 1.5px dashed var(--warm-gold);
+  padding: 0.65rem 1.35rem;
+  border-radius: 50px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-quiz-hint:hover {
+  transform: translateY(-2px);
+  background: rgba(251, 191, 36, 0.25);
+  box-shadow: 0 6px 18px rgba(251, 191, 36, 0.22);
+}
+
+.quiz-hint-text {
+  width: 100%;
+  background: var(--arena-bg);
+  border: 1px solid var(--card-border);
+  border-right: 4px solid var(--warm-gold);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.7;
+  text-align: right;
+}
+
+/* وسام اللقب الملكي في صفحة النتيجة */
+.trophy-badge-banner {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.16) 0%, rgba(251, 113, 133, 0.14) 100%);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.3rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.trophy-title {
+  font-family: var(--font-literary);
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--warm-gold);
+  margin-bottom: 0.25rem;
+}
+
+.trophy-sub {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.summary-section-Label {
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--primary-rose);
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px dashed var(--card-border);
+}
+
+.summary-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.3rem;
+  background: var(--card-inner-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.summary-item-label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.summary-item-value {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--warm-gold);
+  text-align: left;
+}
+
+.summary-note-box {
+  background: var(--arena-bg);
+  border-right: 4px solid var(--warm-gold);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+}
+
+.summary-note-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--warm-gold);
+  margin-bottom: 0.25rem;
+}
+
+.summary-note-text {
+  font-size: 0.98rem;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.summary-love-quote {
+  font-family: var(--font-literary);
+  text-align: center;
+  background: var(--warm-amber-light);
+  border: 1.5px dashed var(--warm-gold);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.35rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--warm-gold);
+  margin-bottom: 1.85rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* أزرار إجراءات الملخص */
+.summary-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #059669 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1.05rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 900;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.38);
+  transition: var(--transition-bounce);
+  text-decoration: none;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.52);
+}
+
+.btn-copy {
+  background: var(--card-inner-bg);
+  color: var(--text-main);
+  border: 1.5px solid var(--card-border);
+  padding: 0.9rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.btn-copy:hover {
+  border-color: var(--warm-gold);
+  color: var(--warm-gold);
+  transform: translateY(-2px);
+}
+
+.summary-secondary-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--card-border);
+}
+
+.btn-edit-choices, .btn-reset-app {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.94rem;
+  font-weight: 800;
+  cursor: pointer;
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-smooth);
+}
+
+.btn-edit-choices {
+  color: var(--warm-gold);
+}
+
+.btn-edit-choices:hover {
+  background: var(--warm-amber-light);
+}
+
+.btn-reset-app {
+  color: var(--text-muted);
+}
+
+.btn-reset-app:hover {
+  color: var(--primary-rose);
+  background: rgba(244, 63, 94, 0.12);
+}
+
+/* ==========================================================================
+   12. النوافذ المنبثقة والتنبيهات (Modals & Toasts)
+   ========================================================================== */
+.celebration-modal,
+.confirm-modal,
+.blocked-day-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(6, 3, 15, 0.76);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 1500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.celebration-modal.show,
+.confirm-modal.show,
+.blocked-day-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.celebration-content,
+.confirm-box,
+.blocked-day-box {
+  background: var(--card-bg);
+  border: 2px solid var(--warm-gold);
+  border-radius: var(--radius-xl);
+  padding: 2.35rem 1.85rem;
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.55), 0 0 35px rgba(251, 191, 36, 0.2);
+  backdrop-filter: blur(24px);
+  transform: scale(0.86);
+  transition: var(--transition-bounce);
+}
+
+.celebration-modal.show .celebration-content,
+.confirm-modal.show .confirm-box,
+.blocked-day-modal.show .blocked-day-box {
+  transform: scale(1);
+}
+
+.celebration-emoji,
+.blocked-day-emoji {
+  font-size: 3.8rem;
+  margin-bottom: 0.85rem;
+  display: inline-block;
+  animation: heartbeat 1.4s infinite ease-in-out;
+}
+
+.celebration-title,
+.blocked-day-message {
+  font-family: var(--font-literary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--warm-gold);
+  margin-bottom: 0.65rem;
+  line-height: 1.4;
+}
+
+.celebration-sub,
+.blocked-day-hint,
+.confirm-text {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+
+.celebration-btn,
+.btn-blocked-day-confirm {
+  background: linear-gradient(135deg, var(--warm-gold) 0%, var(--primary-rose-hover) 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.95rem 2.2rem;
+  border-radius: 50px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 10px 25px rgba(244, 63, 94, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.celebration-btn:hover,
+.btn-blocked-day-confirm:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.toast-alert {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(18, 9, 36, 0.95);
+  color: #fdf8f5;
+  padding: 0.9rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.96rem;
+  font-weight: 800;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), 0 0 20px rgba(251, 191, 36, 0.25);
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition-bounce);
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  max-width: 90%;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  border: 1.5px solid var(--warm-gold);
+}
+
+.toast-alert.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.confirm-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--warm-gold);
+  margin-bottom: 0.5rem;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.btn-confirm-yes {
+  background: linear-gradient(135deg, var(--primary-rose) 0%, var(--primary-rose-hover) 100%);
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn-confirm-no,
+.btn-blocked-day-ack {
+  background: var(--card-inner-bg);
+  color: var(--text-muted);
+  border: 1.5px solid var(--card-border);
+  padding: 0.75rem 1.6rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-blocked-day-ack:hover,
+.btn-confirm-no:hover {
+  border-color: var(--warm-gold);
+  color: var(--warm-gold);
+}
+
+.blocked-day-speaker {
+  display: inline-block;
+  background: var(--warm-amber-light);
+  color: var(--warm-gold);
+  padding: 0.28rem 1rem;
+  border-radius: 50px;
+  font-size: 0.86rem;
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+  border: 1px solid var(--card-border);
+}
+
+.blocked-day-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.date-pill-card.blocked-day-card {
+  border-style: dashed;
+  border-color: rgba(251, 113, 133, 0.4);
+}
+
+.date-pill-card.blocked-day-card .blocked-day-hint-tag {
+  font-size: 0.75rem;
+  color: var(--primary-rose);
+  background: rgba(244, 63, 94, 0.14);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  border-radius: 50px;
+  padding: 0.12rem 0.6rem;
+  margin-top: 0.35rem;
+  display: inline-block;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   13. التذييل، شارة المبرمج، وحقول الهدية
+   ========================================================================== */
+.app-footer {
+  text-align: center;
+  padding: 1.75rem 1rem 2rem;
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.app-footer .footer-heart {
+  color: var(--warm-gold);
+  display: inline-block;
+  animation: heartbeat 2s infinite ease-in-out;
+}
+
+.programmer-welcome-badge {
+  background: var(--card-inner-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.35rem;
+  margin-bottom: 1.65rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  animation: softPulse 3.5s infinite ease-in-out;
+}
+
+@keyframes softPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+}
+
+.programmer-welcome-badge .prog-icon {
+  font-size: 1.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.programmer-welcome-badge .prog-text {
+  font-family: var(--font-literary);
+  font-size: 1.32rem;
+  font-weight: 700;
+  color: var(--warm-gold);
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
+}
+
+.programmer-welcome-badge .prog-sub {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.gift-suggestions-box {
+  background: var(--arena-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1.35rem;
+}
+
+.gift-suggestions-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--warm-gold);
+  margin-bottom: 0.7rem;
+}
+
+.gift-suggestions-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.gift-pill {
+  background: var(--card-inner-bg);
+  border: 1.5px solid var(--card-inner-border);
+  color: var(--text-main);
+  padding: 0.55rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  user-select: none;
+  font-family: inherit;
+}
+
+.gift-pill:hover {
+  border-color: var(--warm-gold);
+  transform: translateY(-2px);
+}
+
+.gift-pill.active {
+  background: linear-gradient(135deg, var(--warm-gold) 0%, var(--primary-rose-hover) 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(244, 63, 94, 0.35);
+}
+
+.gift-input-field {
+  width: 100%;
+  padding: 0.95rem 1.2rem;
+  font-size: 1.02rem;
+  font-family: inherit;
+  font-weight: 700;
+  color: var(--text-main);
+  background: var(--input-bg);
+  border: 1.5px solid var(--input-border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.gift-input-field:focus {
+  border-color: var(--warm-gold);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.22);
+}
+
+/* ==========================================================================
+   14. فقاعة روبوت الباشمهندس التفاعلية (Robot Assistant Bubble Widget 🤖💬)
+   ========================================================================== */
+.robot-assistant-widget {
+  margin: 0.5rem 0 1.35rem;
+  position: relative;
+  z-index: 15;
+}
+
+.robot-assistant-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--card-bg);
+  border: 1.5px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  transition: var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+}
+
+.robot-assistant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--warm-gold) 0%, var(--primary-rose) 100%);
+}
+
+.robot-assistant-card.speaking {
+  border-color: var(--warm-gold);
+  box-shadow: 0 14px 36px -4px rgba(244, 63, 94, 0.32), 0 0 22px rgba(251, 191, 36, 0.25);
+  transform: translateY(-2px);
+}
+
+.robot-avatar-btn {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(251, 191, 36, 0.28), rgba(244, 63, 94, 0.22));
+  border: 2px solid var(--warm-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.25);
+  transition: var(--transition-bounce);
+  padding: 0;
+  font-family: inherit;
+}
+
+.robot-avatar-btn:hover {
+  transform: scale(1.1) rotate(-6deg);
+  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.45);
+}
+
+.robot-avatar-icon {
+  font-size: 1.95rem;
+  line-height: 1;
+  display: inline-block;
+  animation: robotFloat 3s infinite ease-in-out;
+}
+
+.robot-assistant-card.speaking .robot-avatar-icon {
+  animation: gentleWiggle 0.45s ease-in-out 2;
+}
+
+@keyframes robotFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.robot-mood-badge {
+  position: absolute;
+  bottom: -3px;
+  left: -3px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--warm-gold);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.robot-bubble-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.robot-bubble-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.robot-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.robot-name {
+  font-size: 0.98rem;
+  font-weight: 900;
+  color: var(--warm-gold);
+}
+
+.robot-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(16, 185, 129, 0.14);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 0.12rem 0.65rem;
+  border-radius: 50px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+[data-theme="dawn"] .robot-status-pill {
+  background: #ecfdf5;
+  color: #047857;
+  border-color: #a7f3d0;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  display: inline-block;
+  box-shadow: 0 0 8px #10b981;
+  animation: statusPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes statusPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.65; }
+}
+
+.robot-minimize-btn {
+  background: var(--card-inner-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: var(--transition-smooth);
+}
+
+.robot-minimize-btn:hover {
+  border-color: var(--warm-gold);
+  color: var(--warm-gold);
+  transform: scale(1.08);
+}
+
+.robot-bubble-message {
+  font-family: var(--font-literary);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.65;
+  margin-bottom: 0.7rem;
+  background: var(--arena-bg);
+  border: 1px dashed var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.robot-bubble-message.pop-anim {
+  animation: messagePop 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes messagePop {
+  0% { opacity: 0.3; transform: translateY(4px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.robot-bubble-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-robot-joke {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(244, 63, 94, 0.22) 100%);
+  color: var(--warm-gold);
+  border: 1.5px solid var(--warm-gold);
+  padding: 0.4rem 1.05rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition-bounce);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.btn-robot-joke:hover {
+  background: linear-gradient(135deg, var(--warm-gold) 0%, var(--primary-rose-hover) 100%);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(251, 191, 36, 0.35);
+}
+
+.robot-assistant-card.minimized .robot-bubble-message,
+.robot-assistant-card.minimized .robot-bubble-actions {
+  display: none;
+}
+
+.robot-assistant-card.minimized {
+  padding: 0.65rem 1rem;
+  align-items: center;
+}
+
+.robot-assistant-card.minimized .robot-avatar-btn {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+}
+
+.robot-assistant-card.minimized .robot-avatar-icon {
+  font-size: 1.45rem;
+}
+
+.robot-assistant-card.minimized .robot-bubble-header {
+  margin-bottom: 0;
+}
+
+/* احترام تفضيل تقليل الحركة (Accessibility Reduced Motion) */
+@media (prefers-reduced-motion: reduce) {
+  .step-container,
+  .summary-container {
+    translate: none;
+    transition-duration: 0.1s;
+  }
+
+  @starting-style {
+    .step-container,
+    .summary-container {
+      translate: none;
+    }
+  }
+}
+
+/* ==========================================================================
+   15. تجاوب الشاشات الصغيرة والهواتف (Mobile Optimization)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 0.75rem 0.85rem 2.2rem;
+  }
+
+  .header-top-bar {
+    justify-content: center;
+  }
+
+  .step-container {
+    padding: 1.6rem 1.15rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .step-title {
+    font-size: 1.65rem;
+  }
+
+  .step-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .invitation-title {
+    font-size: 1.85rem;
+  }
+
+  .invitation-subtitle {
+    font-size: 0.96rem;
+  }
+
+  .btn-yes {
+    font-size: 1.18rem;
+    padding: 0.88rem 2.1rem;
+  }
+
+  .btn-no {
+    font-size: 1.05rem;
+    padding: 0.78rem 1.65rem;
+  }
+
+  .invitation-arena {
+    min-height: 205px;
+    padding: 1.15rem;
+  }
+
+  .summary-title {
+    font-size: 1.75rem;
+  }
+
+  .summary-love-quote {
+    font-size: 1.15rem;
+    padding: 1rem;
+  }
+
+  .robot-assistant-card {
+    padding: 0.9rem 0.95rem;
+    gap: 0.75rem;
+  }
+
+  .robot-avatar-btn {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
+
+  .robot-avatar-icon {
+    font-size: 1.65rem;
+  }
+
+  .robot-bubble-message {
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+  }
+}

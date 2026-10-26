@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="midnight">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#090514">
+  <title>تحدّي معرفة محمود 🎯🤖 | شروق و م. محمود صيام</title>
+  <!-- خطوط عربية عصرية أنيقة -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,700&family=Cairo:wght@600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- إضاءات الشفق الملكية الخلفية (Aurora Ambient Orbs) -->
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-orb orb-gold"></div>
+    <div class="aurora-orb orb-rose"></div>
+    <div class="aurora-orb orb-violet"></div>
+  </div>
+
+  <!-- خلفية القلوب والرموز المتحركة الهادئة -->
+  <div class="floating-hearts-background" id="particlesContainer" aria-hidden="true"></div>
+
+  <!-- حاوية الاحتفال المبهجة -->
+  <div class="floating-hearts-background" id="confettiContainer" aria-hidden="true" style="z-index: 1200;"></div>
+
+  <div class="app-container">
+    <!-- الهيدر الزجاجي العلوي + زر تبديل الثيم -->
+    <header class="app-header">
+      <div class="header-top-bar">
+        <div class="logo-badge">
+          <span class="sparkle">🎯</span>
+          <span>تحدّي معرفة م. محمود صيام • خاص لشروق 💛</span>
+        </div>
+
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" aria-label="تبديل نمط الألوان">
+          <span class="theme-toggle-icon" id="themeToggleIcon">☀️</span>
+          <span id="themeToggleLabel">نمط شروق الشمس</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- فقاعة روبوت الباشمهندس محمود التفاعلية 🤖💬 -->
+    <aside class="robot-assistant-widget" id="robotAssistantWidget" aria-live="polite">
+      <div class="robot-assistant-card" id="robotAssistantCard">
+        <button type="button" class="robot-avatar-btn" id="robotAvatarBtn" title="اضغطي لسماع غزل من كود محمود 💌">
+          <span class="robot-avatar-icon">🤖</span>
+          <span class="robot-mood-badge" id="robotAvatarEmoji">🎯</span>
+        </button>
+
+        <div class="robot-bubble-content">
+          <div class="robot-bubble-header">
+            <div class="robot-name-wrap">
+              <span class="robot-name" id="robotAssistantName">روبوت م. محمود صيام 🤖💻</span>
+              <span class="robot-status-pill">
+                <span class="status-dot"></span>
+                <span id="robotStatusText">مُبرمجٌ لاختبارِ مدى معرفتكِ بتفاصيل محمود 😉🎯</span>
+              </span>
+            </div>
+
+            <button type="button" class="robot-minimize-btn" id="btnRobotMinimize" title="تصغير / تكبير فقاعة الروبوت" aria-label="تصغير أو تكبير مساعد الروبوت">➖</button>
+          </div>
+
+          <div class="robot-bubble-message" id="robotBubbleMessage">
+            أهلاً يا شروق! 🌹 أنا الروبوت الشخصي للمهندس محمود.. اضغطي «نعم» لنبدأ أسئلة التحدّي عن أشياء محمود المفضلة! 😉
+          </div>
+
+          <div class="robot-bubble-actions">
+            <button type="button" class="btn-robot-joke" id="btnRobotJoke">
+              <span id="btnRobotJokeText">غزلٌ برمجيٌّ ولغويٌّ من محمود 💌✨</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- شريط التقدم الزجاجي -->
+    <section class="progress-section" id="progressSection" style="display: none;" aria-label="تقدم خطوات التحدي">
+      <div class="progress-header">
+        <span class="progress-step-title" id="progressStepName">السؤال الأول</span>
+        <span class="progress-counter" id="progressCounter">السؤال ١ من ٨</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <div class="step-indicators-pills" id="stepPills" aria-hidden="true"></div>
+    </section>
+
+    <!-- ==========================================
+         شاشة البداية (step-0): شاشة الدعوة للتحدي + زر "لا" الهارب
+         ========================================== -->
+    <section class="step-container invitation-screen" id="step-0" aria-labelledby="invitationQuestion">
+      <div class="invitation-envelope-icon">🎯🤖💌</div>
+      <div>
+        <span class="step-badge" id="invitationBadge">اختبارٌ خاصٌّ لأميرةِ اللغةِ العربية شروق، من روبوت م. محمود صيام 🤖💌</span>
+      </div>
+
+      <!-- شارة ترحيب المبرمج محمود وروبوته الذكي -->
+      <div class="programmer-welcome-badge" id="programmerWelcomeBanner">
+        <div class="prog-icon">🤖💻🎯</div>
+        <div class="prog-text" id="programmerWelcomeText">تحدّي الباشمهندس محمود لأميرةِ الضاد: كم تعرفينَ عن تفاصيلِ خطيبكِ؟ 😉🤖🎯</div>
+        <div class="prog-sub" id="programmerWelcomeSub">أهلاً يا شروق! أنا «روبوت م. محمود صيام».. جهّزتُ لكِ اختباراً وتحدّياً خاصاً عن كل الحاجات اللي بحبها محمود (ألوانه، أكلاته، مشروبه، طشاته، واهتماماته) لنشوف كم رح تجيبي بالنتيجة! 🌸✨</div>
+      </div>
+
+      <h1 class="invitation-title" id="invitationQuestion">
+        شروق، جاهزة لتحدّي «كم تعرفينَ عن محمود» وتجيبي العلامة الكاملة؟ 🥹🎯💛
+      </h1>
+      <p class="invitation-subtitle" id="invitationSubtitle">
+        الأسئلة كلها عن الحاجات المفضلة عند محمود وتفاصيله الخاصة.. جاوبي عليها وأرسلي نتيجتكِ النهائية لمحمود على واتساب! 🥰
+      </p>
+
+      <!-- منطقة تفاعل الأزرار (مسرح الهروب لزر لا) -->
+      <div class="invitation-arena" id="invitationArena">
+        <div class="dodge-speech-bubble" id="dodgeSpeechBubble" aria-live="polite"></div>
+
+        <div class="buttons-row" id="invitationButtonsRow">
+          <button type="button" class="btn-yes" id="btnYes">
+            <span id="btnYesText">نعم، جاهزة للتحدّي 😍🎯</span>
+          </button>
+
+          <button type="button" class="btn-no" id="btnNo">
+            <span id="btnNoText">لا 🙈</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="invitation-helper-tip">
+        💡 نصيحة من الروبوت: حاولي تضغطي على زر «لا» وشوفي شو بصير! 😂
+      </div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ١ (step-1): الألوان المفضلة لمحمود 🎨 (الرمادي والأخضر)
+         ========================================== -->
+    <section class="step-container" id="step-1" style="display: none;" aria-labelledby="step1Title">
+      <div class="step-header">
+        <span class="step-badge">السؤال الأول 🎨🩶💚</span>
+        <h2 class="step-title" id="step1Title">السؤال ١: ما هي الألوان المفضّلة عند محمود؟ 🎨</h2>
+        <p class="step-subtitle">تحدّي الألوان: اختاري اللونين اللي محمود بحبهم وبيرتاحلهم أكثر إشي 😉✨</p>
+      </div>
+
+      <div class="options-grid two-cols" id="citiesGrid" role="radiogroup" aria-label="ألوان محمود المفضلة"></div>
+
+      <div class="quiz-extras-box">
+        <button type="button" class="btn-quiz-hint" data-hint-step="step-1">
+          <span>💡 غشّشني بتلميح سري يا روبوت محمود!</span>
+        </button>
+        <div class="quiz-hint-text" id="hintBox-step-1" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ٢ (step-2): الأكلات المفضلة لمحمود 🍽️ (المسقعة والشاورما)
+         ========================================== -->
+    <section class="step-container" id="step-2" style="display: none;" aria-labelledby="step2Title">
+      <div class="step-header">
+        <span class="step-badge">السؤال الثاني 🍆🌯😋</span>
+        <h2 class="step-title" id="step2Title">السؤال ٢: ما هي الأكلات اللي بحبها محمود كثير؟ 🍽️</h2>
+        <p class="step-subtitle">تحدّي الأكلات: شو الأكلتين اللي محمود بعشقهم وما بقاومهم أبداً؟ 🔥</p>
+      </div>
+
+      <div class="options-grid two-cols" id="foodGrid" role="radiogroup" aria-label="أكلات محمود المفضلة"></div>
+
+      <div class="quiz-extras-box">
+        <button type="button" class="btn-quiz-hint" data-hint-step="step-2">
+          <span>💡 غشّشني بتلميح سري يا روبوت محمود!</span>
+        </button>
+        <div class="quiz-hint-text" id="hintBox-step-2" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ٣ (step-3): المشروب المفضل لمحمود ☕ (النسكافيه والشاي)
+         ========================================== -->
+    <section class="step-container" id="step-3" style="display: none;" aria-labelledby="step3Title">
+      <div class="step-header">
+        <span class="step-badge">السؤال الثالث ☕🍵✨</span>
+        <h2 class="step-title" id="step3Title">السؤال ٣: ما هو المشروب المفضّل عند محمود؟ ☕</h2>
+        <p class="step-subtitle">تحدّي المشروب: شو المشروب الرسمي اللي بضبط مزاج محمود بكل وقت؟ ☕💛</p>
+      </div>
+
+      <div class="options-grid two-cols" id="dessertGrid" role="radiogroup" aria-label="مشروب محمود المفضل"></div>
+
+      <div class="quiz-extras-box">
+        <button type="button" class="btn-quiz-hint" data-hint-step="step-3">
+          <span>💡 غشّشني بتلميح سري يا روبوت محمود!</span>
+        </button>
+        <div class="quiz-hint-text" id="hintBox-step-3" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ٤ (step-4): الطشات المفضلة لمحمود 🌊 (البحر والمطاعم)
+         ========================================== -->
+    <section class="step-container" id="step-4" style="display: none;" aria-labelledby="step4Title">
+      <div class="step-header">
+        <span class="step-badge">السؤال الرابع 🌊🍽️🌅</span>
+        <h2 class="step-title" id="step4Title">السؤال ٤: شو أكثر الطشات والأماكن اللي بحبها محمود؟ 🌊</h2>
+        <p class="step-subtitle">تحدّي الطشات: لما محمود يطلع يغيّر جو، وين أكثر مكانين بحبهم كثير؟ 🌊✨</p>
+      </div>
+
+      <div class="options-grid two-cols" id="outingGrid" role="radiogroup" aria-label="طشات محمود المفضلة"></div>
+
+      <div class="quiz-extras-box">
+        <button type="button" class="btn-quiz-hint" data-hint-step="step-4">
+          <span>💡 غشّشني بتلميح سري يا روبوت محمود!</span>
+        </button>
+        <div class="quiz-hint-text" id="hintBox-step-4" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ٥ (step-5): اهتمامات محمود وشغفه 💻 (البرمجة والويب)
+         ========================================== -->
+    <section class="step-container" id="step-5" style="display: none;" aria-labelledby="step5Title">
+      <div class="step-header">
+        <span class="step-badge">السؤال الخامس 💻🌐🚀</span>
+        <h2 class="step-title" id="step5Title">السؤال ٥: ما هو مجال واهتمام محمود وشغفه الأول؟ 💻</h2>
+        <p class="step-subtitle">تحدّي الاهتمامات: شو المجال اللي محمود مبدع فيه وبيقضي وقته بشغف فيه؟ 🤖✨</p>
+      </div>
+
+      <div class="options-grid two-cols" id="interestGrid" role="radiogroup" aria-label="اهتمامات محمود المفضلة"></div>
+
+      <div class="quiz-extras-box">
+        <button type="button" class="btn-quiz-hint" data-hint-step="step-5">
+          <span>💡 غشّشني بتلميح سري يا روبوت محمود!</span>
+        </button>
+        <div class="quiz-hint-text" id="hintBox-step-5" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ٦ - مميز (step-6): أكثر شغلة بتفرّح قلب محمود 🥰
+         ========================================== -->
+    <section class="step-container" id="step-6" style="display: none;" aria-labelledby="step6Title">
+      <div class="step-header">
+        <span class="step-badge">السؤال السادس (مميز) 🥰✨💛</span>
+        <h2 class="step-title" id="step6Title">السؤال ٦ (مميز): شو أكثر شغلة بتفرّح قلب محمود فوراً؟ 🥰</h2>
+        <p class="step-subtitle">سؤال مميز عن قلب محمود: شو الإشي اللي بغيّر مزاجه للأحسن وبخليه مبسوط من قلبه؟ 🌸</p>
+      </div>
+
+      <div class="options-grid two-cols" id="happyGrid" role="radiogroup" aria-label="أكثر شغلة بتفرح محمود"></div>
+
+      <div class="quiz-extras-box">
+        <button type="button" class="btn-quiz-hint" data-hint-step="step-6">
+          <span>💡 غشّشني بتلميح سري يا روبوت محمود!</span>
+        </button>
+        <div class="quiz-hint-text" id="hintBox-step-6" style="display: none;"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ٧ - مميز (step-7): أكثر صفة بتميز شخصية محمود بعين شروق 💝
+         ========================================== -->
+    <section class="step-container" id="step-7" style="display: none;" aria-labelledby="step7Title">
+      <div class="step-header">
+        <span class="step-badge">السؤال السابع (مميز) 💝👑💍</span>
+        <h2 class="step-title" id="step7Title">السؤال ٧ (مميز): ما أكثر صفة بتميز شخصية محمود بعينكِ؟ 💝</h2>
+        <p class="step-subtitle">سؤال خاص لقلب شروق: شو أكثر صفة بتحبيها بشخصية خطيبكِ محمود؟ 🥰✨</p>
+      </div>
+
+      <div class="options-grid two-cols" id="traitGrid" role="radiogroup" aria-label="أكثر صفة تحبها شروق في محمود"></div>
+    </section>
+
+    <!-- ==========================================
+         السؤال ٨ - المحطة الأخيرة (step-8): جائزة التحدّي وكلمة لمحمود 🎁💌
+         ========================================== -->
+    <section class="step-container" id="step-8" style="display: none;" aria-labelledby="step8Title">
+      <div class="step-header">
+        <span class="step-badge">المحطة الأخيرة 🎁💌🌸</span>
+        <h2 class="step-title" id="step8Title">جائزةُ التحدّي وكلمةٌ من قلبكِ لمحمود 🎁💌</h2>
+        <p class="step-subtitle" id="giftSubtitle">بعد ما جاوبتِ على أسئلة محمود.. اختاري المكافأة أو الطشة اللي بتطلبيها منه، واكتبي له كلمة حلوة توصله مع نتيجتكِ!</p>
+      </div>
+
+      <!-- اقتراحات سريعة للجائزة -->
+      <div class="gift-suggestions-box">
+        <div class="gift-suggestions-label">اقتراحات سريعة لجائزة التحدّي (اضغطي للاختيار أو اكتبي تحتها) 👇:</div>
+        <div class="gift-suggestions-pills" id="giftSuggestionsChips"></div>
+      </div>
+
+      <div class="note-input-container">
+        <label for="giftInput" class="note-input-label" id="giftInputLabel">شو الجائزة أو المكافأة اللي بتطلبيها من محمود؟ 🎀</label>
+        <input
+          type="text"
+          id="giftInput"
+          class="gift-input-field"
+          maxlength="200"
+          placeholder="مثلاً: تعزمني على شاورما، أو نطلع قعدة حلوة عالبحر مع نسكافيه..."
+        />
+      </div>
+
+      <div class="note-input-container">
+        <label for="personalNoteInput" class="note-input-label" id="noteInputLabel">رسالة أو كلمة خاصة من قلب شروق لمحمود 💌</label>
+        <textarea
+          id="personalNoteInput"
+          class="note-textarea"
+          rows="3"
+          maxlength="280"
+          placeholder="اكتبي هنا أي شعور، دعوة حلوة، أو تعليق على أسئلة التحدّي..."
+        ></textarea>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         شاشة النتيجة النهائية (step-summary): شهادة ونتيجة تحدّي معرفة محمود 🏆📜
+         ========================================== -->
+    <section class="summary-container" id="step-summary" style="display: none;" aria-labelledby="summaryTitle">
+      <div class="summary-header">
+        <span class="summary-heart-crown" id="trophyIcon">🏆📜💛</span>
+        <h2 class="summary-title" id="summaryTitle">شهادةُ ونتيجةُ «تحدّي معرفة محمود» 🏆📜</h2>
+        <p class="summary-sub">تم تصحيح إجاباتكِ يا شروق! هذه نتيجتكِ وتفاصيل إجاباتكِ جاهزة للإرسال إلى محمود</p>
+      </div>
+
+      <!-- وسام النتيجة النهائية -->
+      <div class="trophy-badge-banner" id="trophyBadgeBanner">
+        <div class="trophy-title" id="trophyScoreTitle">النتيجة النهائية: ٥ / ٥ (١٠٠٪) — خبيرة قلب محمود الأولى! 👑💛</div>
+        <div class="trophy-sub" id="trophyScoreSub">ما شاء الله يا شروق! حافظة كل تفاصيل وأذواق محمود عن ظهر قلب 🎯✨</div>
+      </div>
+
+      <!-- قائمة الإجابات التفصيلية -->
+      <div class="summary-details-list" id="summaryTicket">
+        <div class="summary-section-Label">🎯 أولاً: إجاباتكِ في أسئلة مفضّلات محمود</div>
+
+        <div class="summary-item" id="summaryColorRow">
+          <span class="summary-item-label">🎨 الألوان المفضلة لمحمود:</span>
+          <span class="summary-item-value" id="summaryColorVal">-</span>
+        </div>
+        <div class="summary-item" id="summaryFoodRow">
+          <span class="summary-item-label">🍽️ الأكلات المفضلة لمحمود:</span>
+          <span class="summary-item-value" id="summaryFoodVal">-</span>
+        </div>
+        <div class="summary-item" id="summaryDrinkRow">
+          <span class="summary-item-label">☕ المشروب المفضل لمحمود:</span>
+          <span class="summary-item-value" id="summaryDrinkVal">-</span>
+        </div>
+        <div class="summary-item" id="summaryOutingRow">
+          <span class="summary-item-label">🌊 الطشات المفضلة لمحمود:</span>
+          <span class="summary-item-value" id="summaryOutingVal">-</span>
+        </div>
+        <div class="summary-item" id="summaryInterestRow">
+          <span class="summary-item-label">💻 اهتمامات وشغف محمود:</span>
+          <span class="summary-item-value" id="summaryInterestVal">-</span>
+        </div>
+
+        <div class="summary-section-Label" style="margin-top: 0.5rem;">✨ ثانياً: الأسئلة المميزة وجائزة التحدّي</div>
+
+        <div class="summary-item" id="summaryHappyRow">
+          <span class="summary-item-label">🥰 أكثر شغلة بتفرّح محمود:</span>
+          <span class="summary-item-value" id="summaryHappyVal">-</span>
+        </div>
+        <div class="summary-item" id="summaryTraitRow">
+          <span class="summary-item-label">💝 أكثر صفة بتميز محمود:</span>
+          <span class="summary-item-value" id="summaryTraitVal">-</span>
+        </div>
+        <div class="summary-item" id="summaryGiftRow">
+          <span class="summary-item-label">🎁 جائزة التحدّي المطلوبة:</span>
+          <span class="summary-item-value" id="summaryGiftVal">-</span>
+        </div>
+      </div>
+
+      <div class="summary-note-box" id="summaryNoteBox" style="display: none;">
+        <div class="summary-note-label">💌 رسالة شروق لمحمود:</div>
+        <p class="summary-note-text" id="summaryNoteVal"></p>
+      </div>
+
+      <div class="summary-love-quote" id="summaryLoveQuote">
+        «أنتِ القصيدةُ الأجملُ في ديوانِ حياتي، وأحلى مَن يعرفُ كلَّ تفاصيلي — م. محمود صيام»
+      </div>
+
+      <!-- أزرار الإجراءات النهائية -->
+      <div class="summary-actions">
+        <button type="button" class="btn-whatsapp" id="btnSendWhatsApp">
+          <span>💬</span>
+          <span id="btnWhatsappText">إرسال نتيجتي وإجاباتي لمحمود عبر واتساب 💬</span>
+        </button>
+
+        <button type="button" class="btn-copy" id="btnCopyDetails">
+          <span>📋 نسخ شهادة التحدّي والنتيجة</span>
+        </button>
+
+        <div class="summary-secondary-actions">
+          <button type="button" class="btn-edit-choices" id="btnEditChoices">
+            ✏️ مراجعة أو تعديل إجاباتي
+          </button>
+          <button type="button" class="btn-reset-app" id="btnResetApp">
+            🔄 إعادة التحدّي من البداية
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- شريط أزرار التنقل بين الأسئلة (السابق / التالي) -->
+    <nav class="navigation-bar" id="navigationBar" style="display: none;" aria-label="التنقل بين الأسئلة">
+      <button type="button" class="btn-nav btn-prev" id="btnPrev">
+        <span>→ السؤال السابق</span>
+      </button>
+      <button type="button" class="btn-nav btn-next" id="btnNext">
+        <span id="btnNextText">السؤال التالي ←</span>
+      </button>
+    </nav>
+
+    <!-- تذييل الموقع الرومانسي -->
+    <footer class="app-footer" id="footerText">
+      صُنعَ بكلِّ حُبٍّ وإتقانٍ برمجيٍّ من م. محمود صيام لخطيبتهِ الغالية شروق <span class="footer-heart">💛</span>
+    </footer>
+  </div>
+
+  <!-- نافذة الاحتفال السريعة عند الضغط على "نعم" -->
+  <div class="celebration-modal" id="celebrationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="celebration-content">
+      <div class="celebration-emoji">🎯🤖💛</div>
+      <h3 class="celebration-title" id="modalTitle">كنت عارف إنك قدّ التحدّي وحافظة تفاصيل محمود! يلا نبدأ الأسئلة 🥰🎉</h3>
+      <p class="celebration-sub">خذي وقتكِ بكل سؤال، ولو احتجتِ مساعدة روبوت محمود جاهز بالتلميحات السرية ✨</p>
+      <button type="button" class="celebration-btn" id="btnStartPlanning">
+        <span>ابدئي السؤال الأول 🎯✨</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- نافذة تأكيد لطيفة عند الضغط على "إعادة التحدّي من البداية" -->
+  <div class="confirm-modal" id="confirmResetModal" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle">
+    <div class="confirm-box">
+      <h3 class="confirm-title" id="resetModalTitle">هل تودّين إعادة التحدّي من البداية يا شروق؟ 🌸</h3>
+      <p class="confirm-text">سيتم مسح إجاباتكِ الحالية لتبدئي تحدّي مفضّلات محمود من جديد 💛</p>
+      <div class="confirm-actions">
+        <button type="button" class="btn-confirm-yes" id="btnConfirmReset">
+          نعم، ابدأ من جديد 🔄
+        </button>
+        <button type="button" class="btn-confirm-no" id="btnCancelReset">
+          تراجع 💛
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- إشعار عائم لطيف (Toast) للتنبيهات والنسخ -->
+  <div class="toast-alert" id="sweetToast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
